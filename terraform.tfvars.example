@@ -1,0 +1,50 @@
+# Copy this file to terraform.tfvars and fill in your values.
+# Never commit terraform.tfvars to source control — it contains secrets.
+
+# ---------------------------------------------------------------------------
+# GitHub App Authentication
+# ---------------------------------------------------------------------------
+# 1. Create a GitHub App at: https://github.com/organizations/\<org\>/settings/apps/new
+# 2. Grant it: Repository > Administration (read & write), Contents (read & write)
+# 3. Install the App on your org/user account and note the Installation ID
+# 4. Generate and download a private key (.pem) from the App settings page
+
+github_app_id              = "123456"
+github_app_installation_id = "78901234"
+github_app_pem_file        = "/path/to/your-app.private-key.pem"
+
+github_owner = "your-org-or-username"
+
+# ---------------------------------------------------------------------------
+# Repository settings
+# ---------------------------------------------------------------------------
+
+repository_name        = "my-new-repo"
+repository_description = "A repository managed by Terraform."
+visibility             = "private"
+
+has_issues      = true
+has_projects    = false
+has_wiki        = false
+has_discussions = false
+
+auto_init          = true
+gitignore_template = "Terraform"
+license_template   = "mit"
+
+allow_merge_commit     = false
+allow_squash_merge     = true
+allow_rebase_merge     = false
+allow_auto_merge       = false
+delete_branch_on_merge = true
+
+topics = ["terraform", "infrastructure"]
+
+vulnerability_alerts = true
+
+default_branch = "main"
+
+# Branch protection (optional)
+enable_branch_protection        = false
+required_approving_review_count = 1
+enforce_admins                  = false
